@@ -1,27 +1,50 @@
-using System;
-using TechTalk.SpecFlow;
+using SimpleTests.Support.Constants;
+using SimpleTests.Support.Models;
+using SimpleTests.Support.PageActions;
+using TechTalk.SpecFlow.Assist;
 
 namespace SimpleTests.StepDefinitions
 {
     [Binding]
     public class UITestsStepDefinitions
     {
-        [Given(@"\[context]")]
-        public void GivenContext()
+        MethodsAuthPage authMethods = new MethodsAuthPage();
+
+        #region Given
+
+        #endregion
+
+        #region When 
+
+        [When(@"the user enters invalid credentials")]
+        [When(@"the user enters valid credentials")]
+        public void WhenTheUserEntersValidCredentials(Table table)
         {
-            throw new PendingStepException();
+            var currentCredentials = table.CreateInstance<CredentialsModel>();
+
+            authMethods.InputLogin(currentCredentials.Login);
+            authMethods.InputPassword(currentCredentials.Password);
+            authMethods.ClickSubmitButton();
         }
 
-        [When(@"\[action]")]
-        public void WhenAction()
+        #endregion
+
+        #region Then
+
+        [Then(@"the product page is displayed")]
+        public void ThenTheMainPageIsDisplayed()
         {
-            throw new PendingStepException();
+            var mainPage = new ProductsPage();
+
+           mainPage.CurrectPageUrl().Should().BeEquivalentTo(BaseConstants.ProductsPageURL);
         }
 
-        [Then(@"\[outcome]")]
-        public void ThenOutcome()
+        [Then(@"returned expection with message")]
+        public void ThenReturnedExpectionWithMessage()
         {
-            throw new PendingStepException();
+            authMethods.IsExceptionMessageCorrect().Should().BeTrue();
         }
+
+        #endregion
     }
 }
