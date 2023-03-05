@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 
 namespace SimpleTests.Support.Controller
 {
-    struct
-
     public class EmployeeController
     {
         private string _url = ConfiguratorHelper.GetAPISection().ConnectionUrl;
