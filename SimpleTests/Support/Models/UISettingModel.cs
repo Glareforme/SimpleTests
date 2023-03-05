@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleTests.Support.SettingModels
 {
-    public class UISettingModel
+    public class SettingModel
     {
         public string ConnectionUrl { get; set; }
     }

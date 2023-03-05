@@ -1,5 +1,8 @@
 {
   "uiSection": {
     "ConnectionUrl": "https://www.saucedemo.com/"
+  },
+  "apiSection": {
+    "ConnectionUrl": "https://dummy.restapiexample.com/"
   }
 }
