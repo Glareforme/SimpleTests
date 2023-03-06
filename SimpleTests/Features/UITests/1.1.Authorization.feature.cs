@@ -20,9 +20,9 @@ namespace SimpleTests.Features.UITests
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Authorize")]
+    [NUnit.Framework.DescriptionAttribute("Authorize on website")]
     [NUnit.Framework.CategoryAttribute("uiFeature")]
-    public partial class AuthorizeFeature
+    public partial class AuthorizeOnWebsiteFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -30,14 +30,14 @@ namespace SimpleTests.Features.UITests
         private static string[] featureTags = new string[] {
                 "uiFeature"};
         
-#line 1 "Authorization.feature"
+#line 1 "1.1.Authorization.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/UITests", "Authorize", "As a website user ", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/UITests", "Authorize on website", "For buy products on website\r\nAs a website user \r\nI want authorize ", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -76,11 +76,11 @@ namespace SimpleTests.Features.UITests
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User can authorize with valid credentials")]
+        [NUnit.Framework.DescriptionAttribute("1.1.1.User can authorize with valid credentials")]
         [NUnit.Framework.CategoryAttribute("uiTest")]
         [NUnit.Framework.TestCaseAttribute("standard_user", null)]
         [NUnit.Framework.TestCaseAttribute("locked_out_user", null)]
-        public void UserCanAuthorizeWithValidCredentials(string login, string[] exampleTags)
+        public void _1_1_1_UserCanAuthorizeWithValidCredentials(string login, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "uiTest"};
@@ -91,8 +91,8 @@ namespace SimpleTests.Features.UITests
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("login", login);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User can authorize with valid credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 6
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1.1.1.User can authorize with valid credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 9
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -102,16 +102,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                             "login",
                             "password"});
-                table1.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             string.Format("{0}", login),
                             "secret_sauce"});
-#line 7
- testRunner.When("the user enters valid credentials", ((string)(null)), table1, "When ");
-#line hidden
 #line 10
+ testRunner.When("the user enters valid credentials", ((string)(null)), table3, "When ");
+#line hidden
+#line 13
  testRunner.Then("the product page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -119,19 +119,26 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User can\'t authorize with invalid credentials")]
+        [NUnit.Framework.DescriptionAttribute("1.1.2.User can\'t authorize with invalid credentials")]
+        [NUnit.Framework.CategoryAttribute("uiTest")]
         [NUnit.Framework.TestCaseAttribute("", "", null)]
         [NUnit.Framework.TestCaseAttribute("dsadas", "", null)]
         [NUnit.Framework.TestCaseAttribute("", "bvxcbx", null)]
         [NUnit.Framework.TestCaseAttribute("bvcxb", "bvbcxc", null)]
-        public void UserCantAuthorizeWithInvalidCredentials(string login, string password, string[] exampleTags)
+        public void _1_1_2_UserCantAuthorizeWithInvalidCredentials(string login, string password, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "uiTest"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("login", login);
             argumentsOfScenario.Add("password", password);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User can\'t authorize with invalid credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 17
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1.1.2.User can\'t authorize with invalid credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 21
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -141,16 +148,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                             "login",
                             "password"});
-                table2.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             string.Format("{0}", login),
                             "<secret_sauce>"});
-#line 18
- testRunner.When("the user enters invalid credentials", ((string)(null)), table2, "When ");
+#line 22
+ testRunner.When("the user enters invalid credentials", ((string)(null)), table4, "When ");
 #line hidden
-#line 21
+#line 25
  testRunner.Then("returned expection with message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

@@ -3,6 +3,6 @@
     "ConnectionUrl": "https://www.saucedemo.com/"
   },
   "apiSection": {
-    "ConnectionUrl": "https://dummy.restapiexample.com/"
+    "ConnectionUrl": "https://dummy.restapiexample.com/api/v1/"
   }
 }

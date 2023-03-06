@@ -1,62 +1,62 @@
 ﻿using SimpleTests.Drivers;
 using SimpleTests.Support.Constants;
 using SimpleTests.Support.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimpleTests.Support.Controller
 {
     public class EmployeeController
     {
-        private string _url = ConfiguratorHelper.GetAPISection().ConnectionUrl;
-        ApiRequestHelper apiRequestHelper;
+        ApiRequestHelper requestHelper;
 
         public EmployeeController()
         {
-          apiRequestHelper  = new ApiRequestHelper(_url);
+            requestHelper = new ApiRequestHelper(ConfiguratorHelper.GetAPISection().ConnectionUrl);
         }
 
-        public async Task<string> GetEmployeesAsync()
+        public async Task<ResponseModel> GetEmployeesAsync()
         {
-            var response = await apiRequestHelper.GetAsync(APITestendpoints.GetEmployeeUrl);
+            var response = await requestHelper.GetAsync(APITestendpoints.GetEmployeeUrl);
 
-            return ReturnResponseContent(response);
+            return await ReturnResponseContent(response);
         }
 
-        public async Task<string> GetEmployeeByIdAsync(string employeeId)
+        public async Task<ResponseModel> GetEmployeeByIdAsync(string employeeId)
         {
-            var response = await apiRequestHelper.GetAsync(string.Join(APITestendpoints.GetEmployeeByIdUrl, employeeId));
+            var response = await requestHelper.GetAsync(string.Format(APITestendpoints.GetEmployeeByIdUrl, employeeId));
 
-            return ReturnResponseContent(response);
+            return await ReturnResponseContent(response); 
         }
 
-        public async Task<string> AddEmployeeAsync(EmployeeModel employee)
+        public async Task<ResponseModel> AddEmployeeAsync(EmployeeModel employee)
         {
-            var response = await apiRequestHelper.PostAsync(APITestendpoints.PostCreateEmployeeUrl, employee);
+            var response = await requestHelper.PostAsync(APITestendpoints.PostCreateEmployeeUrl, employee);
 
-            return ReturnResponseContent(response);
+            return await ReturnResponseContent(response);
         }
 
-        public async Task<string> UpdateEmployeeById(string employeeId, EmployeeModel newEmployeeData)
+        public async Task<ResponseModel> UpdateEmployeeById(string employeeId, EmployeeModel newEmployeeData)
         {
-            var response = await apiRequestHelper.PutAsync(string.Join(APITestendpoints.PutUpdateEmployeeByIdUrl, employeeId), newEmployeeData);
+            var response = await requestHelper.PutAsync(string.Join(APITestendpoints.PutUpdateEmployeeByIdUrl, employeeId), newEmployeeData);
 
-            return ReturnResponseContent(response);
+            return await ReturnResponseContent(response);
         }
 
-        public async Task<string> DeleteEmployeeById(string employeeId)
+        public async Task<ResponseModel> DeleteEmployeeById(string employeeId)
         {
-            var response = await apiRequestHelper.DeleteAsync(string.Join(APITestendpoints.DeleteEmployeeUrl, employeeId));
+            var response = await requestHelper.DeleteAsync(string.Join(APITestendpoints.DeleteEmployeeUrl, employeeId));
 
-            return ReturnResponseContent(response);
+            return await ReturnResponseContent(response);
         }
 
-        private static string ReturnResponseContent(HttpResponseMessage response)
+        private async Task<ResponseModel> ReturnResponseContent(HttpResponseMessage response)
         {
-            return response.IsSuccessStatusCode ? response.Content.ToString() : throw new Exception($"Request failed with status code {response.StatusCode}");
+            var responsedData = new ResponseModel()
+            {
+                StatusCode = ((int)response.StatusCode),
+                ResponseContent = await response.Content.ReadAsStringAsync()
+            };
+
+            return responsedData;
         }
     }
 }

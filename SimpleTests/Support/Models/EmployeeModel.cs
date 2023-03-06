@@ -2,10 +2,13 @@
 {
     public class EmployeeModel
     {
-        public string Name { get; set; }
+        public int id { get; set; }
+        public string? employee_name { get; set; }
 
-        public string Salary { get; set; }
+        public int? employee_salary { get; set; }
+            
+        public int? employee_age { get; set; }
 
-        public string Age { get; set; }
+        public string? profile_image { get; set; }
     }
 }
