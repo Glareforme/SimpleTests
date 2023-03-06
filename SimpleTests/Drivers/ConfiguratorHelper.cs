@@ -22,9 +22,14 @@ namespace SimpleTests.Drivers
             return builder.Build();
         }
 
-        public static UISettingModel GetUISection()
+        public static SettingModel GetUISection()
         {
-            return Config.GetSection("uiSection").Get<UISettingModel>();
+            return Config.GetSection("uiSection").Get<SettingModel>();
+        }
+
+        public static SettingModel GetAPISection()
+        {
+            return Config.GetSection("apiSection").Get<SettingModel>();
         }
     }
 }

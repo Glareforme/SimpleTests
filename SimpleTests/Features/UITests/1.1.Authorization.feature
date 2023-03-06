@@ -1,9 +1,12 @@
 ﻿@uiFeature
-Feature: Authorize
+Feature: Authorize on website
 
+For buy products on website
 As a website user 
+I want authorize 
+
 @uiTest
-Scenario Outline: User can authorize with valid credentials
+Scenario Outline: 1.1.1.User can authorize with valid credentials
 	When the user enters valid credentials
 		| login   | password     |
 		| <login> | secret_sauce |
@@ -14,7 +17,8 @@ Examples:
 	| standard_user   |
 	| locked_out_user |
 
-Scenario Outline: User can't authorize with invalid credentials
+@uiTest
+Scenario Outline: 1.1.2.User can't authorize with invalid credentials
 	When the user enters invalid credentials
 		| login   | password       |
 		| <login> | <secret_sauce> |
