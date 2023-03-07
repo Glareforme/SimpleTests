@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using SimpleTests.Support.Models;
 using SimpleTests.Support.SettingModels;
 
 namespace SimpleTests.Drivers
@@ -22,14 +23,20 @@ namespace SimpleTests.Drivers
             return builder.Build();
         }
 
-        public static SettingModel GetUISection()
+        public static UrlSettingModel GetUISection()
         {
-            return Config.GetSection("uiSection").Get<SettingModel>();
+            return Config.GetSection("uiSection").Get<UrlSettingModel>();
         }
 
-        public static SettingModel GetAPISection()
+        public static UrlSettingModel GetAPISection()
         {
-            return Config.GetSection("apiSection").Get<SettingModel>();
+            return Config.GetSection("apiSection").Get<UrlSettingModel>();
         }
+
+        public static SqlSectionModel GetSqlSectionModel()
+        {
+            return Config.GetSection("dbSection").Get<SqlSectionModel>();
+        }
+
     }
 }

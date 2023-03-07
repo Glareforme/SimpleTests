@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleTests.Support.SettingModels
+namespace SimpleTests.Support.Models
 {
-    public class UrlSettingModel
+    internal class SqlSectionModel
     {
-        public string ConnectionUrl { get; set; }
+        public string ConnectionString { get; set; }
     }
 }

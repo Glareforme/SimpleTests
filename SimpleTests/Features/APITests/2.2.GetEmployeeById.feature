@@ -1,7 +1,9 @@
 ﻿@apiTests
 Feature: 2.2.GetEmployeeById
 
-A short summary of the feature
+As a user web service 
+To get employee data 
+I want send requesr with employee id
 
 @apiTests
 Scenario Outline: 2.2.1.When user requests employee data with correct id, then OK response with expected data is received
