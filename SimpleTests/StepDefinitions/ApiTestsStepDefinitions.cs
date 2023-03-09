@@ -1,9 +1,7 @@
 using SimpleTests.Support.Constants;
 using SimpleTests.Support.Controller;
 using SimpleTests.Support.Models;
-using System;
 using System.Text.Json;
-using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
 namespace SimpleTests.StepDefinitions
@@ -13,15 +11,16 @@ namespace SimpleTests.StepDefinitions
         public int statusCode;
         public int EmployeeId;
         public string? Responce;
+        public string? EmployeeLastName;
     }
 
     [Binding]
-    public class EmployeeTestsStepDefinitions 
+    public class ApiTestsStepDefinitions 
     {
         EmployeeController employeeController = new EmployeeController();
         private readonly ResponceInfo responceInfo;
 
-        public EmployeeTestsStepDefinitions(ResponceInfo responceInfo)
+        public ApiTestsStepDefinitions(ResponceInfo responceInfo)
         {
             this.responceInfo = responceInfo;
         }

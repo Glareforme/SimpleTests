@@ -153,6 +153,7 @@ PhotoPath) VALUES
 @HomePhone, 
 @Extension,
 @Photo, 
+@Notes,
 @ReportsTo, 
 @PhotoPath
 )</value>

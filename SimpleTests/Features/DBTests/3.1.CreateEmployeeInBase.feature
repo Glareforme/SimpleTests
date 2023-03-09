@@ -5,8 +5,8 @@ As a service user
 To add employees to database 
 I want user sql queries 
 
-@dbTests @create
-Scenario: [scenario name]
-	Given [context]
-	When [action]
-	Then [outcome]
+@dbTests @deleteAfter
+Scenario: When user add employee in database, then he is displayed in employees table
+	Given Database is already exist 
+	When user add new employee in table 
+	Then employee displayed in database table 

@@ -102,6 +102,7 @@ namespace SimpleTests.Support.SQLQueries {
         ///@HomePhone, 
         ///@Extension,
         ///@Photo, 
+        ///@Notes,
         ///@ReportsTo, 
         ///@PhotoPath
         ///).

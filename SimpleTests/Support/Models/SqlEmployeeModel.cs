@@ -1,6 +1,6 @@
 ﻿namespace SimpleTests.Support.Models
 {
-    internal class SqlEmployeeModel
+    public class SqlEmployeeModel
     {
         public string LastName { get; set; }
 
@@ -28,7 +28,7 @@
 
         public string Extension { get; set; }
 
-        public object Photo { get; set; }
+        public byte[] Photo { get; set; }
 
         public string Notes { get; set; }
 

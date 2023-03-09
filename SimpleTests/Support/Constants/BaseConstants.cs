@@ -13,7 +13,9 @@
         public const string SuccessGetUserById = "Successfully! Record has been fetched.";
         public const string GetUserWithoutIdErrorMessage = "Error Occured! Page Not found, contact rstapi2example@gmail.com";
 
-
         public const string SuccessStatus = "success";
+        public const string Error = "error";
+
+        public const string EmployeeLastNameForSQL = "LastTest";
     }
 }
