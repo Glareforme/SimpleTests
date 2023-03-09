@@ -4,5 +4,8 @@
   },
   "apiSection": {
     "ConnectionUrl": "https://dummy.restapiexample.com/api/v1/"
+  },
+  "dbSection": {
+    "ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=Northwind;Trusted_Connection=True;"
   }
 }
