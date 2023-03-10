@@ -1,0 +1,16 @@
+# Default ignored files
+/workspace.xml
+
+# Project exclude paths
+#/.
+
+# IntelliJ
+/out/
+.idea
+.vscode
+/target/
+/results/
+ *.iml
+ modules.xml
+ *.ipr
+ *.iws
