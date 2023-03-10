@@ -4,35 +4,39 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.NoSuchWindowException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 public class BrowserHelper {
     public static WebDriver webDriver;
     public static Properties prop;
 
-    public BrowserHelper(){
+    public BrowserHelper() throws Exception {
         try {
             prop = new Properties();
-            FileInputStream path = new FileInputStream("path");
-
+            FileInputStream path = new FileInputStream("src/config.properties");
             prop.load(path);
-        } catch (Exception e) {
-            // TODO: handle exception
+        } catch (IOException e) {
+            throw new IOException(e);
         }
     }
 
-    public static void initializationDriver(){
+    public static WebDriver initializationDriver(){
         WebDriverManager.chromedriver().setup();
 
         webDriver = new ChromeDriver();
         webDriver.manage().deleteAllCookies();
         webDriver.manage().window().maximize();
-        webDriver.get(prop.getProperty("url"));
-        webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        return webDriver;
+    }
+
+    public static WebDriver GetBrowser(){
+        return  webDriver == null ? initializationDriver() : webDriver;
     }
 
     public static void switchWindow() throws NoSuchWindowException {
